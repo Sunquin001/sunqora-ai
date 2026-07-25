@@ -483,3 +483,59 @@ width:100%;
 }
 
 }
+/* ===========================
+   Audience
+=========================== */
+
+.audience{
+padding:90px 8%;
+text-align:center;
+}
+
+.audience h2{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.audience-text{
+max-width:750px;
+margin:0 auto 50px;
+color:#CBD5E1;
+font-size:18px;
+}
+
+.audience-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.audience-card{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:30px;
+backdrop-filter:blur(12px);
+transition:.3s;
+}
+
+.audience-card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,.1);
+}
+
+.icon{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.audience-card h3{
+margin-bottom:12px;
+color:#7DD3FC;
+}
+
+.audience-card p{
+color:#CBD5E1;
+font-size:16px;
+line-height:1.6;
+}
