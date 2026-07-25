@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://sunquin001.github.io/sunqora-ai/sitemap.xml
