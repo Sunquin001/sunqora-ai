@@ -1007,3 +1007,37 @@ filter:blur(180px);
 pointer-events:none;
 
 }
+/* ===========================
+   Authentication
+=========================== */
+
+.login-links{
+margin-top:20px;
+text-align:center;
+color:#CBD5E1;
+}
+
+.login-links a{
+color:#7DD3FC;
+text-decoration:none;
+font-weight:600;
+}
+
+.login-links a:hover{
+text-decoration:underline;
+}
+
+.terms{
+display:flex;
+align-items:flex-start;
+gap:10px;
+margin:20px 0;
+color:#CBD5E1;
+font-size:15px;
+line-height:1.5;
+text-align:left;
+}
+
+.terms input{
+margin-top:3px;
+}
