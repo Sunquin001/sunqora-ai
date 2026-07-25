@@ -80,19 +80,27 @@ flex-wrap:wrap;
 }
 
 button{
-padding:15px 35px;
+
+button{
+padding:16px 38px;
 border:none;
 border-radius:50px;
 background:linear-gradient(135deg,#2563EB,#7C3AED);
 color:white;
 font-size:17px;
+font-weight:600;
 cursor:pointer;
-transition:.3s;
-box-shadow:0 10px 30px rgba(37,99,235,.35);
+transition:all .35s ease;
+box-shadow:0 10px 25px rgba(37,99,235,.35);
 }
 
 button:hover{
-transform:translateY(-4px);
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 18px 45px rgba(37,99,235,.55);
+}
+
+button:active{
+transform:scale(.98);
 }
 
 /* ===========================
