@@ -907,3 +907,37 @@ transition:opacity .8s ease, transform .8s ease;
 opacity:1;
 transform:translateY(0);
 }
+/* ===========================
+   Premium Card Effects
+=========================== */
+
+.card,
+.why-card,
+.audience-card,
+.pricing-card,
+.faq-item,
+.contact-info,
+.workspace-card{
+
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+background .35s ease;
+
+}
+
+.card:hover,
+.why-card:hover,
+.audience-card:hover,
+.pricing-card:hover,
+.faq-item:hover,
+.contact-info:hover,
+.workspace-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+background:rgba(255,255,255,.10);
+
+}
