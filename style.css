@@ -740,3 +740,87 @@ font-size:12px;
 font-weight:bold;
 color:#fff;
 }
+/* ===========================
+   Contact
+=========================== */
+
+.contact{
+padding:90px 8%;
+text-align:center;
+}
+
+.contact h2{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.contact-subtitle{
+max-width:700px;
+margin:0 auto 50px;
+color:#CBD5E1;
+font-size:18px;
+line-height:1.7;
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+align-items:start;
+}
+
+.contact-info{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+border-radius:20px;
+padding:30px;
+backdrop-filter:blur(12px);
+text-align:left;
+}
+
+.contact-info h3{
+color:#7DD3FC;
+margin-bottom:20px;
+}
+
+.contact-info p{
+margin-bottom:15px;
+color:#CBD5E1;
+line-height:1.7;
+}
+
+.contact-info span{
+color:#94A3B8;
+font-size:14px;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:16px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:16px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+color:#94A3B8;
+}
+
+.contact-form textarea{
+resize:vertical;
+min-height:140px;
+}
+
+.contact-form button{
+align-self:flex-start;
+}
