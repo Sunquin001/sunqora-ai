@@ -1,15 +1,57 @@
+/* ==========================================
+   Sunqora AI
+   Production Stylesheet
+   Part 1
+========================================== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
+font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#050816,#0B1120,#1E1B4B);
-color:white;
-min-height:100vh;
+color:#ffffff;
 line-height:1.6;
+min-height:100vh;
+overflow-x:hidden;
+position:relative;
+}
+
+/* Background Glow */
+
+body::before{
+content:"";
+position:fixed;
+top:-250px;
+right:-250px;
+width:500px;
+height:500px;
+background:#2563EB;
+opacity:.10;
+filter:blur(180px);
+pointer-events:none;
+z-index:-1;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-250px;
+left:-250px;
+width:500px;
+height:500px;
+background:#7C3AED;
+opacity:.10;
+filter:blur(180px);
+pointer-events:none;
+z-index:-1;
 }
 
 /* ===========================
@@ -17,36 +59,50 @@ line-height:1.6;
 =========================== */
 
 nav{
+position:sticky;
+top:0;
+z-index:1000;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:20px 8%;
-position:sticky;
-top:0;
+
 background:rgba(5,8,22,.85);
-backdrop-filter:blur(15px);
-z-index:1000;
+
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 nav h2{
-color:#7DD3FC;
 font-size:30px;
+font-weight:700;
+color:#7DD3FC;
 }
 
-nav div{
+.menu-toggle{
+display:none;
+font-size:32px;
+cursor:pointer;
+color:#ffffff;
+}
+
+.nav-links{
 display:flex;
-gap:20px;
-flex-wrap:wrap;
+align-items:center;
+gap:24px;
 }
 
-nav a{
-color:white;
+.nav-links a{
 text-decoration:none;
+color:#ffffff;
 font-size:16px;
 transition:.3s;
 }
 
-nav a:hover{
+.nav-links a:hover{
 color:#7DD3FC;
 }
 
@@ -55,12 +111,14 @@ color:#7DD3FC;
 =========================== */
 
 .hero{
+padding:110px 20px 90px;
 text-align:center;
-padding:100px 20px 70px;
 }
 
 .hero h1{
-font-size:56px;
+font-size:58px;
+font-weight:700;
+line-height:1.15;
 margin-bottom:25px;
 }
 
@@ -69,75 +127,179 @@ max-width:760px;
 margin:auto;
 font-size:20px;
 color:#CBD5E1;
+line-height:1.8;
 }
 
 .hero-buttons{
-margin-top:35px;
+margin-top:40px;
+
 display:flex;
 justify-content:center;
-gap:18px;
+align-items:center;
 flex-wrap:wrap;
-}
-
-button{
-
-button{
-padding:16px 38px;
-border:none;
-border-radius:50px;
-background:linear-gradient(135deg,#2563EB,#7C3AED);
-color:white;
-font-size:17px;
-font-weight:600;
-cursor:pointer;
-transition:all .35s ease;
-box-shadow:0 10px 25px rgba(37,99,235,.35);
-}
-
-button:hover{
-transform:translateY(-4px) scale(1.03);
-box-shadow:0 18px 45px rgba(37,99,235,.55);
-}
-
-button:active{
-transform:scale(.98);
+gap:18px;
 }
 
 /* ===========================
-   Workspace Preview
+   Buttons
 =========================== */
 
-.workspace-preview{
-padding:80px 8%;
+button{
+
+padding:16px 38px;
+
+border:none;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+
+color:#ffffff;
+
+font-size:17px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:0 10px 30px rgba(37,99,235,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 45px rgba(37,99,235,.55);
+
+}
+
+button:active{
+
+transform:scale(.98);
+
+}
+
+/* ===========================
+   Common Sections
+=========================== */
+
+section{
+padding:90px 8%;
+}
+
+section h2{
+font-size:42px;
+font-weight:700;
+text-align:center;
+margin-bottom:18px;
+}
+
+section p{
+line-height:1.8;
+}
+
+.subtitle,
+.workspace-subtitle,
+.audience-text,
+.why-subtitle,
+.pricing-subtitle,
+.faq-subtitle,
+.contact-subtitle{
+
+max-width:760px;
+
+margin:0 auto 50px;
+
+text-align:center;
+
+color:#CBD5E1;
+
+font-size:18px;
+
+}
+/* ==========================================
+   Audience
+========================================== */
+
+.audience{
 text-align:center;
 }
 
-.workspace-preview h2{
-font-size:42px;
-margin-bottom:15px;
+.audience-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:50px;
 }
 
-.workspace-subtitle{
+.audience-card{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.10);
+border-radius:22px;
+padding:30px;
+backdrop-filter:blur(15px);
+transition:.35s;
+}
+
+.audience-card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,.10);
+box-shadow:0 18px 45px rgba(0,0,0,.30);
+}
+
+.icon{
+font-size:48px;
+margin-bottom:18px;
+}
+
+.audience-card h3{
+font-size:24px;
+margin-bottom:12px;
+color:#7DD3FC;
+}
+
+.audience-card p{
 color:#CBD5E1;
-margin-bottom:45px;
+}
+
+/* ==========================================
+   Workspace Preview
+========================================== */
+
+.workspace-preview{
+text-align:center;
 }
 
 .workspace-card{
 
-max-width:950px;
-margin:auto;
+max-width:980px;
+
+margin:50px auto 0;
 
 background:rgba(255,255,255,.06);
 
 border:1px solid rgba(255,255,255,.10);
 
-border-radius:25px;
-
-backdrop-filter:blur(18px);
+border-radius:24px;
 
 padding:30px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.30);
+backdrop-filter:blur(18px);
+
+box-shadow:0 20px 60px rgba(0,0,0,.30);
+
+transition:.35s;
+
+}
+
+.workspace-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 28px 70px rgba(0,0,0,.40);
 
 }
 
@@ -169,7 +331,7 @@ height:12px;
 
 border-radius:50%;
 
-display:inline-block;
+display:block;
 
 }
 
@@ -186,8 +348,11 @@ background:#28C840;
 }
 
 .workspace-header h3{
-margin-left:15px;
+
 font-size:22px;
+
+font-weight:600;
+
 }
 
 .workspace-tools{
@@ -204,13 +369,13 @@ margin-bottom:35px;
 
 .tool{
 
-background:rgba(255,255,255,.08);
-
 padding:18px;
 
-border-radius:15px;
+background:rgba(255,255,255,.08);
 
-transition:.3s;
+border-radius:16px;
+
+transition:.30s;
 
 }
 
@@ -224,21 +389,21 @@ background:rgba(255,255,255,.12);
 
 .prompt-box{
 
-background:#0F172A;
-
-padding:20px;
-
-border-radius:18px;
-
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
 
-gap:15px;
+gap:20px;
 
 flex-wrap:wrap;
+
+padding:20px;
+
+background:#0F172A;
+
+border-radius:18px;
 
 }
 
@@ -254,18 +419,82 @@ margin:0;
 
 }
 
-/* ===========================
-   Features
-=========================== */
+/* ==========================================
+   Why Choose
+========================================== */
 
-.features{
-padding:90px 8%;
+.why-choose{
 text-align:center;
 }
 
-.features h2{
-font-size:40px;
-margin-bottom:50px;
+.why-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+margin-top:50px;
+
+}
+
+.why-card{
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.10);
+
+border-radius:22px;
+
+padding:30px;
+
+backdrop-filter:blur(15px);
+
+transition:.35s;
+
+}
+
+.why-card:hover{
+
+transform:translateY(-8px);
+
+background:rgba(255,255,255,.10);
+
+box-shadow:0 18px 45px rgba(0,0,0,.30);
+
+}
+
+.why-icon{
+
+font-size:50px;
+
+margin-bottom:18px;
+
+}
+
+.why-card h3{
+
+font-size:24px;
+
+margin-bottom:12px;
+
+color:#7DD3FC;
+
+}
+
+.why-card p{
+
+color:#CBD5E1;
+
+}
+
+/* ==========================================
+   Features
+========================================== */
+
+.features{
+text-align:center;
 }
 
 .feature-grid{
@@ -276,21 +505,23 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
 gap:25px;
 
+margin-top:50px;
+
 }
 
 .card{
 
-background:rgba(255,255,255,.08);
+background:rgba(255,255,255,.06);
 
-border:1px solid rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.10);
 
-border-radius:20px;
+border-radius:22px;
 
 padding:30px;
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(15px);
 
-transition:.3s;
+transition:.35s;
 
 }
 
@@ -298,15 +529,17 @@ transition:.3s;
 
 transform:translateY(-8px);
 
-background:rgba(255,255,255,.12);
+background:rgba(255,255,255,.10);
+
+box-shadow:0 18px 45px rgba(0,0,0,.30);
 
 }
 
 .card h3{
 
-margin-bottom:15px;
-
 font-size:24px;
+
+margin-bottom:15px;
 
 color:#7DD3FC;
 
@@ -317,403 +550,46 @@ color:#7DD3FC;
 color:#CBD5E1;
 
 }
-
-/* ===========================
-   Login
-=========================== */
-
-.login-box{
-
-max-width:420px;
-
-margin:100px auto;
-
-padding:40px;
-
-background:rgba(255,255,255,.08);
-
-border-radius:20px;
-
-backdrop-filter:blur(12px);
-
-text-align:center;
-
-}
-
-.login-box h1{
-
-margin-bottom:15px;
-
-}
-
-.login-box p{
-
-margin-bottom:20px;
-
-}
-
-.login-box input{
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border:none;
-
-border-radius:10px;
-
-font-size:16px;
-
-}
-
-.login-box button{
-
-width:100%;
-
-}
-
-/* ===========================
-   Footer
-=========================== */
-
-.footer{
-
-margin-top:90px;
-
-padding:60px 20px;
-
-text-align:center;
-
-background:rgba(255,255,255,.05);
-
-border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.footer h2{
-
-color:#7DD3FC;
-
-margin-bottom:15px;
-
-}
-
-.footer p{
-
-color:#CBD5E1;
-
-}
-
-.footer-links{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:25px;
-
-margin:30px 0;
-
-}
-
-.footer-links a{
-
-color:white;
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-.footer-links a:hover{
-
-color:#7DD3FC;
-
-}
-
-.copyright{
-
-font-size:14px;
-
-color:#94A3B8;
-
-}
-
-/* ===========================
-   Mobile
-=========================== */
-
-@media(max-width:768px){
-
-nav{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.hero h1{
-
-font-size:40px;
-
-}
-
-.workspace-preview h2{
-
-font-size:32px;
-
-}
-
-.features h2{
-
-font-size:32px;
-
-}
-
-.prompt-box{
-
-flex-direction:column;
-
-align-items:stretch;
-
-}
-
-.generate-btn{
-
-width:100%;
-
-}
-
-}
-/* ===========================
-   Audience
-=========================== */
-
-.audience{
-padding:90px 8%;
-text-align:center;
-}
-
-.audience h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.audience-text{
-max-width:750px;
-margin:0 auto 50px;
-color:#CBD5E1;
-font-size:18px;
-}
-
-.audience-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-
-.audience-card{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:30px;
-backdrop-filter:blur(12px);
-transition:.3s;
-}
-
-.audience-card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,.1);
-}
-
-.icon{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.audience-card h3{
-margin-bottom:12px;
-color:#7DD3FC;
-}
-
-.audience-card p{
-color:#CBD5E1;
-font-size:16px;
-line-height:1.6;
-}
-/* ===========================
-   Why Choose Sunqora AI
-=========================== */
-
-.why-choose{
-padding:90px 8%;
-text-align:center;
-}
-
-.why-choose h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.why-subtitle{
-max-width:760px;
-margin:0 auto 50px;
-color:#CBD5E1;
-font-size:18px;
-line-height:1.7;
-}
-
-.why-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
-}
-
-.why-card{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.12);
-border-radius:20px;
-padding:30px;
-backdrop-filter:blur(12px);
-transition:.3s;
-}
-
-.why-card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,.10);
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-.why-icon{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.why-card h3{
-font-size:24px;
-margin-bottom:15px;
-color:#7DD3FC;
-}
-
-.why-card p{
-color:#CBD5E1;
-font-size:16px;
-line-height:1.7;
-}
-/* ===========================
-   FAQ
-=========================== */
-
-.faq{
-padding:90px 8%;
-text-align:center;
-}
-
-.faq h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.faq-subtitle{
-max-width:700px;
-margin:0 auto 50px;
-color:#CBD5E1;
-font-size:18px;
-line-height:1.7;
-}
-
-.faq-container{
-max-width:900px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.faq-item{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.12);
-border-radius:18px;
-padding:25px;
-text-align:left;
-backdrop-filter:blur(12px);
-transition:.3s;
-}
-
-.faq-item:hover{
-background:rgba(255,255,255,.10);
-transform:translateY(-4px);
-}
-
-.faq-item h3{
-color:#7DD3FC;
-margin-bottom:12px;
-font-size:22px;
-}
-
-.faq-item p{
-color:#CBD5E1;
-line-height:1.7;
-font-size:16px;
-}
-/* ===========================
+/* ==========================================
    Pricing
-=========================== */
+========================================== */
 
 .pricing{
-padding:90px 8%;
 text-align:center;
-}
-
-.pricing h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.pricing-subtitle{
-max-width:700px;
-margin:0 auto 50px;
-color:#CBD5E1;
-font-size:18px;
-line-height:1.7;
 }
 
 .pricing-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:30px;
+margin-top:50px;
 }
 
 .pricing-card{
 position:relative;
 background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.12);
-border-radius:22px;
+border:1px solid rgba(255,255,255,.10);
+border-radius:24px;
 padding:35px;
-backdrop-filter:blur(12px);
-transition:.3s;
+backdrop-filter:blur(15px);
+transition:.35s;
 }
 
 .pricing-card:hover{
-transform:translateY(-8px);
-box-shadow:0 18px 40px rgba(0,0,0,.25);
+transform:translateY(-10px);
+background:rgba(255,255,255,.10);
+box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .pricing-card h3{
 font-size:28px;
 color:#7DD3FC;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 .pricing-card h1{
-font-size:48px;
-margin-bottom:10px;
+font-size:50px;
+margin-bottom:12px;
 }
 
 .price-period{
@@ -723,13 +599,12 @@ margin-bottom:25px;
 
 .pricing-card ul{
 list-style:none;
-padding:0;
-margin:0 0 30px;
 text-align:left;
+margin-bottom:30px;
 }
 
 .pricing-card ul li{
-margin:12px 0;
+margin:14px 0;
 color:#CBD5E1;
 }
 
@@ -742,48 +617,83 @@ position:absolute;
 top:18px;
 right:18px;
 background:#2563EB;
-padding:6px 12px;
+color:#fff;
+padding:6px 14px;
 border-radius:20px;
 font-size:12px;
 font-weight:bold;
-color:#fff;
 }
-/* ===========================
-   Contact
-=========================== */
 
-.contact{
-padding:90px 8%;
+/* ==========================================
+   FAQ
+========================================== */
+
+.faq{
 text-align:center;
 }
 
-.contact h2{
-font-size:40px;
-margin-bottom:15px;
+.faq-container{
+max-width:900px;
+margin:50px auto 0;
+display:flex;
+flex-direction:column;
+gap:22px;
 }
 
-.contact-subtitle{
-max-width:700px;
-margin:0 auto 50px;
+.faq-item{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.10);
+border-radius:20px;
+padding:25px;
+text-align:left;
+backdrop-filter:blur(15px);
+transition:.35s;
+}
+
+.faq-item:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,.10);
+}
+
+.faq-item h3{
+color:#7DD3FC;
+margin-bottom:12px;
+font-size:22px;
+}
+
+.faq-item p{
 color:#CBD5E1;
-font-size:18px;
-line-height:1.7;
+}
+
+/* ==========================================
+   Contact
+========================================== */
+
+.contact{
+text-align:center;
 }
 
 .contact-container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:40px;
+gap:35px;
+margin-top:50px;
 align-items:start;
 }
 
 .contact-info{
 background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.12);
-border-radius:20px;
+border:1px solid rgba(255,255,255,.10);
+border-radius:22px;
 padding:30px;
-backdrop-filter:blur(12px);
 text-align:left;
+backdrop-filter:blur(15px);
+transition:.35s;
+}
+
+.contact-info:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(0,0,0,.30);
 }
 
 .contact-info h3{
@@ -792,9 +702,8 @@ margin-bottom:20px;
 }
 
 .contact-info p{
-margin-bottom:15px;
+margin-bottom:16px;
 color:#CBD5E1;
-line-height:1.7;
 }
 
 .contact-info span{
@@ -812,11 +721,17 @@ gap:18px;
 .contact-form textarea{
 width:100%;
 padding:16px;
-border:none;
-border-radius:12px;
 background:rgba(255,255,255,.08);
-color:white;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+color:#fff;
 font-size:16px;
+outline:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#2563EB;
 }
 
 .contact-form input::placeholder,
@@ -826,194 +741,91 @@ color:#94A3B8;
 
 .contact-form textarea{
 resize:vertical;
-min-height:140px;
+min-height:150px;
 }
 
 .contact-form button{
 align-self:flex-start;
 }
-/* ===========================
-   Navigation
-=========================== */
 
-html{
-scroll-behavior:smooth;
-}
+/* ==========================================
+   Footer
+========================================== */
 
-.menu-toggle{
-display:none;
-font-size:32px;
-cursor:pointer;
-color:white;
-}
-
-.nav-links{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-font-size:16px;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#7DD3FC;
-}
-
-@media (max-width:768px){
-
-.menu-toggle{
-display:block;
-}
-
-.nav-links{
-display:none;
-position:absolute;
-top:80px;
-left:0;
-width:100%;
-background:#0B1120;
-padding:20px;
-flex-direction:column;
+.footer{
+margin-top:90px;
+padding:60px 20px;
 text-align:center;
-gap:20px;
-border-top:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.05);
+border-top:1px solid rgba(255,255,255,.08);
 }
 
-.nav-links.active{
+.footer h2{
+color:#7DD3FC;
+margin-bottom:12px;
+}
+
+.footer p{
+color:#CBD5E1;
+}
+
+.footer-links{
 display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25
+   /* ==========================================
+   Login & Authentication
+========================================== */
+
+.login-box{
+max-width:450px;
+margin:100px auto;
+padding:40px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.10);
+border-radius:24px;
+backdrop-filter:blur(18px);
+box-shadow:0 20px 50px rgba(0,0,0,.30);
+text-align:center;
 }
 
-nav{
-position:relative;
+.login-box h1{
+margin-bottom:15px;
+font-size:34px;
 }
 
-}
-/* ===========================
-   Scroll Animations
-=========================== */
-
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:opacity .8s ease, transform .8s ease;
+.login-box p{
+color:#CBD5E1;
+margin-bottom:25px;
 }
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-/* ===========================
-   Premium Card Effects
-=========================== */
-
-.card,
-.why-card,
-.audience-card,
-.pricing-card,
-.faq-item,
-.contact-info,
-.workspace-card{
-
-transition:
-transform .35s ease,
-box-shadow .35s ease,
-background .35s ease;
-
-}
-
-.card:hover,
-.why-card:hover,
-.audience-card:hover,
-.pricing-card:hover,
-.faq-item:hover,
-.contact-info:hover,
-.workspace-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 25px 60px rgba(0,0,0,.35);
-
-background:rgba(255,255,255,.10);
-
-}
-/* ===========================
-   Section Headings
-=========================== */
-
-section h2{
-
-font-weight:700;
-
-letter-spacing:-1px;
-
+.login-box input{
+width:100%;
+padding:16px;
 margin-bottom:18px;
-
+border-radius:14px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.08);
+color:#ffffff;
+font-size:16px;
+outline:none;
 }
 
-section p{
-
-line-height:1.8;
-
-}
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:-250px;
-
-right:-250px;
-
-width:500px;
-
-height:500px;
-
-background:#2563EB;
-
-opacity:.10;
-
-filter:blur(180px);
-
-pointer-events:none;
-
+.login-box input:focus{
+border-color:#2563EB;
 }
 
-body::after{
-
-content:"";
-
-position:fixed;
-
-bottom:-250px;
-
-left:-250px;
-
-width:500px;
-
-height:500px;
-
-background:#7C3AED;
-
-opacity:.10;
-
-filter:blur(180px);
-
-pointer-events:none;
-
+.login-box input::placeholder{
+color:#94A3B8;
 }
-/* ===========================
-   Authentication
-=========================== */
+
+.login-box button{
+width:100%;
+}
 
 .login-links{
-margin-top:20px;
-text-align:center;
+margin-top:25px;
 color:#CBD5E1;
 }
 
@@ -1030,14 +842,186 @@ text-decoration:underline;
 .terms{
 display:flex;
 align-items:flex-start;
-gap:10px;
+gap:12px;
 margin:20px 0;
+text-align:left;
 color:#CBD5E1;
 font-size:15px;
-line-height:1.5;
-text-align:left;
 }
 
 .terms input{
-margin-top:3px;
+margin-top:4px;
+width:auto;
 }
+
+/* ==========================================
+   Scroll Reveal Animation
+========================================== */
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:
+opacity .8s ease,
+transform .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ==========================================
+   Shared Hover Effects
+========================================== */
+
+.workspace-card,
+.audience-card,
+.why-card,
+.card,
+.pricing-card,
+.faq-item,
+.contact-info{
+
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+background .35s ease;
+
+}
+
+.workspace-card:hover,
+.audience-card:hover,
+.why-card:hover,
+.card:hover,
+.pricing-card:hover,
+.faq-item:hover,
+.contact-info:hover{
+
+transform:translateY(-10px);
+
+background:rgba(255,255,255,.10);
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   Mobile Responsive
+========================================== */
+
+@media (max-width:768px){
+
+nav{
+padding:18px 6%;
+position:relative;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#0B1120;
+padding:20px;
+flex-direction:column;
+gap:20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.hero{
+padding:80px 20px 60px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.hero-buttons button{
+width:100%;
+max-width:320px;
+}
+
+section{
+padding:70px 6%;
+}
+
+section h2{
+font-size:32px;
+}
+
+.workspace-header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.workspace-tools{
+grid-template-columns:1fr;
+}
+
+.prompt-box{
+flex-direction:column;
+align-items:stretch;
+}
+
+.generate-btn{
+width:100%;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.contact-form button{
+width:100%;
+align-self:stretch;
+}
+
+.footer-links{
+flex-direction:column;
+gap:15px;
+}
+
+}
+
+/* ==========================================
+   Large Desktop
+========================================== */
+
+@media (min-width:1200px){
+
+.hero h1{
+font-size:68px;
+}
+
+section{
+padding:110px 10%;
+}
+
+.workspace-card{
+max-width:1100px;
+}
+
+}
+
+/* ==========================================
+   End of Sunqora AI Stylesheet
+========================================== */
