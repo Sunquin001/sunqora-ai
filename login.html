@@ -39,14 +39,16 @@
 Sign in to continue creating with Sunqora AI.
 </p>
 
-<form>
+<form id="loginForm">
 
 <input
+id="email"
 type="email"
 placeholder="Email Address"
 required>
 
 <input
+id="password"
 type="password"
 placeholder="Password"
 required>
@@ -58,6 +60,8 @@ Sign In
 </button>
 
 </form>
+
+<p id="message" class="login-links"></p>
 
 <p class="login-links">
 
@@ -82,6 +86,56 @@ Create Account
 </p>
 
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script>
+
+const loginForm = document.getElementById("loginForm");
+
+const message = document.getElementById("message");
+
+loginForm.addEventListener("submit", async (e)=>{
+
+e.preventDefault();
+
+const email=document.getElementById("email").value;
+
+const password=document.getElementById("password").value;
+
+const {error}=await supabase.auth.signInWithPassword({
+
+email,
+
+password
+
+});
+
+if(error){
+
+message.style.color="#ff6b6b";
+
+message.textContent=error.message;
+
+return;
+
+}
+
+message.style.color="#22c55e";
+
+message.textContent="Login successful...";
+
+setTimeout(()=>{
+
+window.location.href="dashboard.html";
+
+},1000);
+
+});
+
+</script>
 
 <script src="script.js"></script>
 
