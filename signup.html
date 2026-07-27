@@ -34,38 +34,36 @@
 <h1>Create Your Account 🚀</h1>
 
 <p>
-Join Sunqora AI and start creating with one prompt.
+Start creating with Sunqora AI today.
 </p>
 
-<form>
+<form id="signupForm">
 
 <input
-type="text"
-placeholder="Full Name"
-required>
-
-<input
+id="email"
 type="email"
 placeholder="Email Address"
 required>
 
 <input
+id="password"
 type="password"
-placeholder="Create Password"
+placeholder="Password (minimum 6 characters)"
+minlength="6"
 required>
+
+<div class="terms">
 
 <input
-type="password"
-placeholder="Confirm Password"
+id="terms"
+type="checkbox"
 required>
 
-<label class="terms">
-
-<input type="checkbox" required>
-
+<label for="terms">
 I agree to the Terms of Service and Privacy Policy.
-
 </label>
+
+</div>
 
 <button type="submit">
 
@@ -74,6 +72,8 @@ Create Account
 </button>
 
 </form>
+
+<p id="message" class="login-links"></p>
 
 <p class="login-links">
 
@@ -88,6 +88,56 @@ Sign In
 </p>
 
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script>
+
+const signupForm = document.getElementById("signupForm");
+
+const message = document.getElementById("message");
+
+signupForm.addEventListener("submit", async (e)=>{
+
+e.preventDefault();
+
+const email = document.getElementById("email").value;
+
+const password = document.getElementById("password").value;
+
+const { error } = await supabase.auth.signUp({
+
+email,
+
+password
+
+});
+
+if(error){
+
+message.style.color="#ff6b6b";
+
+message.textContent=error.message;
+
+return;
+
+}
+
+message.style.color="#22c55e";
+
+message.textContent="Account created successfully! Redirecting to login...";
+
+setTimeout(()=>{
+
+window.location.href="login.html";
+
+},1500);
+
+});
+
+</script>
 
 <script src="script.js"></script>
 
