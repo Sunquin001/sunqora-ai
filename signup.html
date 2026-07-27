@@ -66,9 +66,7 @@ I agree to the Terms of Service and Privacy Policy.
 </div>
 
 <button type="submit">
-
 Create Account
-
 </button>
 
 </form>
@@ -76,15 +74,8 @@ Create Account
 <p id="message" class="login-links"></p>
 
 <p class="login-links">
-
 Already have an account?
-
-<a href="login.html">
-
-Sign In
-
-</a>
-
+<a href="login.html">Sign In</a>
 </p>
 
 </section>
@@ -96,55 +87,46 @@ Sign In
 <script>
 
 const signupForm = document.getElementById("signupForm");
-
 const message = document.getElementById("message");
 
-signupForm.addEventListener("submit", async (e)=>{
+signupForm.addEventListener("submit", async (e) => {
 
 e.preventDefault();
 
-const email = document.getElementById("email").value;
+const email = document.getElementById("email").value.trim();
 
 const password = document.getElementById("password").value;
 
 const { error } = await supabase.auth.signUp({
 
-email,
-
-password
+email: email,
+password: password
 
 });
 
-if(error){
+if (error) {
 
-message.style.color="#ff6b6b";
-
-message.textContent=error.message;
-
+message.style.color = "#ff6b6b";
+message.textContent = error.message;
 return;
 
 }
 
-message.style.color="#22c55e";
+message.style.color = "#22c55e";
+message.textContent = "Account created successfully! Redirecting to login...";
 
-message.textContent="Account created successfully! Redirecting to login...";
+setTimeout(() => {
 
-setTimeout(()=>{
+window.location.href = "login.html";
 
-window.location.href="login.html";
-
-},1500);
+}, 1500);
 
 });
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-
-<script>
-...
 </script>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
